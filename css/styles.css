@@ -1,0 +1,614 @@
+/*
+    HIBBITTS PORTFOLIO WEBSITE
+    ------------------------------------------------------------
+    FONT:
+    Poppins is used because it closely matches the clean, rounded
+    sans-serif typography in the supplied reference design.
+
+    REPLACE YOUR HERO BACKGROUND HERE:
+    Change ../assets/images/hero-background.svg below to your own
+    image, for example: ../assets/images/hero-background.jpg
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+    --navy: #082b50;
+    --blue: #3c9ad4;
+    --ink: #090f17;
+    --text: #353c47;
+    --muted: #687181;
+    --surface: #ffffff;
+    --section-alt: #f7f8fa;
+    --border: #e7ebf0;
+    --shadow: 0 16px 38px rgba(13, 23, 36, 0.09);
+    --shadow-hover: 0 24px 46px rgba(13, 23, 36, 0.18);
+    --max-width: 1120px;
+    --radius: 18px;
+    --transition: 240ms ease;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    color: var(--text);
+    background: var(--surface);
+    line-height: 1.68;
+}
+
+img,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+p {
+    margin-top: 0;
+}
+
+.container {
+    width: min(var(--max-width), calc(100% - 3rem));
+    margin: 0 auto;
+}
+
+.section {
+    padding: clamp(4.4rem, 7vw, 6.4rem) 0;
+    scroll-margin-top: 4.25rem;
+}
+
+.section-heading {
+    margin: 0 0 0.55rem;
+    font-size: clamp(1.9rem, 3vw, 2.55rem);
+    font-weight: 650;
+    letter-spacing: -0.045em;
+    color: var(--ink);
+}
+
+.section-intro {
+    max-width: 630px;
+    margin: 0 auto 2.65rem;
+    text-align: center;
+    font-size: 0.96rem;
+    color: var(--muted);
+}
+
+.center-heading {
+    text-align: center;
+}
+
+/* Navigation */
+.site-header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 100;
+    transition: background-color var(--transition), box-shadow var(--transition);
+}
+
+.site-header.scrolled,
+.site-header.inner-header {
+    background: rgba(8, 18, 30, 0.96);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.14);
+}
+
+.navbar {
+    min-height: 4.65rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.brand {
+    color: #fff;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.05rem, 2.7vw, 2.2rem);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    position: relative;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.79rem;
+    font-weight: 400;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -0.42rem;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform var(--transition);
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after {
+    transform: scaleX(1);
+}
+
+.nav-toggle {
+    display: none;
+    padding: 0.35rem;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 1.45rem;
+    height: 2px;
+    margin: 0.28rem 0;
+    background: #fff;
+}
+
+/* Home / hero section */
+.hero-home {
+    position: relative;
+    min-height: min(100vh, 780px);
+    height: clamp(570px, 100vh, 780px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        linear-gradient(rgba(5, 16, 27, 0.55), rgba(5, 16, 27, 0.65)),
+        url("../assets/images/hero-background.svg") center / cover no-repeat;
+    color: #fff;
+    text-align: center;
+}
+
+.hero-content {
+    margin-top: 2.8rem;
+}
+
+.hero-hello {
+    margin: 0 0 0.18rem;
+    font-size: clamp(2rem, 3.1vw, 2.65rem);
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -0.045em;
+}
+
+.hero-role {
+    margin: 0;
+    font-size: clamp(1.62rem, 3.1vw, 2.65rem);
+    line-height: 1.4;
+    font-weight: 300;
+    letter-spacing: -0.04em;
+}
+
+.role-word {
+    display: inline-block;
+    min-width: 9.2ch;
+    font-weight: 400;
+    text-align: left;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 340ms ease, transform 340ms ease;
+}
+
+.role-word.is-fading {
+    opacity: 0;
+    transform: translateY(8px);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 1.55rem;
+}
+
+.social-icons img {
+    height: 15px;
+    width: 15px;
+    object-fit: contain;
+    opacity: 0.86;
+    transition: transform var(--transition), opacity var(--transition);
+}
+
+.social-icons a:hover img,
+.social-icons a:focus-visible img {
+    transform: translateY(-2px) scale(1.12);
+    opacity: 1;
+}
+
+/* About */
+.about-layout {
+    display: grid;
+    grid-template-columns: minmax(190px, 0.7fr) minmax(370px, 1.6fr) minmax(230px, 0.8fr);
+    align-items: center;
+    gap: clamp(1.8rem, 4vw, 3.5rem);
+}
+
+.about-photo {
+    width: 100%;
+    max-width: 245px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.eyebrow {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: var(--muted);
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+
+.about-copy .section-heading {
+    margin-bottom: 0.45rem;
+}
+
+.about-copy p {
+    color: var(--muted);
+    font-size: 0.91rem;
+}
+
+.education-line {
+    margin-top: 1.3rem;
+    font-weight: 500;
+    color: var(--ink) !important;
+}
+
+.skill-chart-wrap {
+    text-align: center;
+}
+
+.pie-chart {
+    width: min(205px, 100%);
+    aspect-ratio: 1;
+    margin: 0 auto 1.45rem;
+    border-radius: 50%;
+    background: conic-gradient(
+        var(--blue) 0% 53%,
+        var(--navy) 53% 80%,
+        var(--ink) 80% 100%
+    );
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14), var(--shadow);
+}
+
+.skill-legend {
+    display: grid;
+    gap: 0.52rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+    font-size: 0.79rem;
+    color: var(--muted);
+}
+
+.skill-legend li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+}
+
+.skill-label {
+    display: flex;
+    align-items: center;
+    gap: 0.52rem;
+}
+
+.swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+}
+
+.swatch.mechanical { background: var(--blue); }
+.swatch.electrical { background: var(--navy); }
+.swatch.software { background: var(--ink); }
+
+/* Image card grids */
+.gallery-section {
+    background: var(--section-alt);
+}
+
+.employment-section {
+    background: #fff;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.35rem;
+}
+
+.image-card {
+    overflow: hidden;
+    display: block;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: #fff;
+    box-shadow: 0 7px 23px rgba(13, 23, 36, 0.05);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.image-card:hover,
+.image-card:focus-visible {
+    transform: translateY(-8px) scale(1.015);
+    box-shadow: var(--shadow-hover);
+}
+
+.card-visual {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-visual img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transition: transform 420ms ease;
+}
+
+.image-card:hover .card-visual img,
+.image-card:focus-visible .card-visual img {
+    transform: scale(1.045);
+}
+
+.card-caption {
+    padding: 1.08rem 1.1rem 1.18rem;
+}
+
+.card-caption h3 {
+    margin: 0;
+    font-size: 0.94rem;
+    font-weight: 600;
+    line-height: 1.45;
+    color: var(--ink);
+}
+
+.card-caption p {
+    margin: 0.28rem 0 0;
+    font-size: 0.74rem;
+    color: var(--muted);
+}
+
+/* Footer / contact */
+.site-footer {
+    padding: 3.1rem 0;
+    text-align: center;
+    color: #b6bec7;
+    background: #09111b;
+}
+
+.footer-name {
+    margin: 0 0 0.3rem;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+.site-footer p {
+    margin-bottom: 1.1rem;
+    font-size: 0.85rem;
+}
+
+.site-footer .social-icons {
+    margin-top: 0;
+}
+
+/* Detail pages */
+.detail-page {
+    min-height: 100vh;
+    background: #fff;
+}
+
+.detail-main {
+    padding: clamp(7.7rem, 12vw, 9.2rem) 0 5.5rem;
+}
+
+.detail-container {
+    max-width: 940px;
+}
+
+.back-link {
+    display: inline-flex;
+    gap: 0.42rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    color: var(--muted);
+    font-size: 0.83rem;
+    transition: color var(--transition);
+}
+
+.back-link:hover {
+    color: var(--ink);
+}
+
+.detail-title {
+    max-width: 850px;
+    margin: 0 0 0.45rem;
+    color: var(--ink);
+    font-size: clamp(2.1rem, 5vw, 3.45rem);
+    line-height: 1.15;
+    letter-spacing: -0.06em;
+    font-weight: 650;
+}
+
+.detail-subtitle {
+    margin: 0 0 2.55rem;
+    color: var(--muted);
+    font-size: 0.98rem;
+}
+
+.detail-media {
+    overflow: hidden;
+    width: 100%;
+    margin: 0 0 2.8rem;
+    aspect-ratio: 16 / 9;
+    border-radius: 26px;
+    background: #eef2f6;
+    box-shadow: var(--shadow);
+}
+
+.detail-media video,
+.detail-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detail-description {
+    max-width: 760px;
+    color: var(--text);
+    font-size: 0.97rem;
+}
+
+.detail-description h2 {
+    margin: 0 0 0.9rem;
+    color: var(--ink);
+    font-size: 1.42rem;
+    letter-spacing: -0.035em;
+}
+
+.detail-description p + p {
+    margin-top: 1rem;
+}
+
+.detail-description ul {
+    padding-left: 1.35rem;
+}
+
+.text-link {
+    display: inline-flex;
+    margin-top: 0.7rem;
+    padding: 0.66rem 1rem;
+    border: 1px solid var(--ink);
+    border-radius: 4px;
+    color: var(--ink);
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: background var(--transition), color var(--transition);
+}
+
+.text-link:hover {
+    background: var(--ink);
+    color: #fff;
+}
+
+/* Responsive layouts */
+@media (max-width: 920px) {
+    .about-layout {
+        grid-template-columns: 220px 1fr;
+    }
+
+    .skill-chart-wrap {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 205px 240px;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 760px) {
+    .container {
+        width: min(var(--max-width), calc(100% - 2rem));
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 4.65rem;
+        left: 1rem;
+        right: 1rem;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        overflow: hidden;
+        border-radius: 12px;
+        background: rgba(8, 18, 30, 0.98);
+        box-shadow: var(--shadow);
+    }
+
+    .nav-links.is-open {
+        display: flex;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 0.95rem 1.15rem;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .hero-home {
+        height: 590px;
+        min-height: 590px;
+    }
+
+    .role-word {
+        min-width: auto;
+    }
+
+    .about-layout {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .about-photo {
+        margin: 0 auto;
+    }
+
+    .skill-chart-wrap {
+        display: block;
+        margin-top: 1.2rem;
+    }
+
+    .skill-legend {
+        max-width: 235px;
+        margin: 0 auto;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 540px) and (max-width: 760px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

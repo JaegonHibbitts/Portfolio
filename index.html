@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaegon Hibbitts | Engineer · Maker · Designer</title>
+    <meta name="description" content="Personal portfolio website of Jaegon Hibbitts.">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="navbar container" aria-label="Primary navigation">
+            <a class="brand" href="index.html#home">HIBBITTS</a>
+            <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#employment">Employment</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="hero-home" id="home">
+            <!-- REPLACE: Your full-screen home background image is set in css/styles.css under .hero-home. -->
+            <div class="hero-content container">
+                <h1 class="hero-hello">Hello</h1>
+                <p class="hero-role">I am <span class="role-word" id="role-word" aria-live="polite">Engineer</span></p>
+
+                <div class="social-icons" aria-label="Social profiles">
+                    <!-- REPLACE: Update these links and logo image files with your own profiles/assets. -->
+                    <a href="https://linkedin.com/in/jaegon-hibbitts" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                        <img src="assets/images/social/linkedin.svg" alt="">
+                    </a>
+                    <a href="https://www.facebook.com/REPLACE_WITH_YOUR_PROFILE" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile">
+                        <img src="assets/images/social/facebook.svg" alt="">
+                    </a>
+                    <a href="https://github.com/JaegonHibbitts" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                        <img src="assets/images/social/github.svg" alt="">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <div class="container about-layout">
+                <!-- REPLACE: Change this file to your portrait/headshot. -->
+                <img class="about-photo" src="assets/images/profile-placeholder.svg" alt="Portrait of Jaegon Hibbitts">
+
+                <div class="about-copy">
+                    <span class="eyebrow">Mechanical Engineering · Robotics</span>
+                    <h2 class="section-heading">About Me.</h2>
+                    <!-- REPLACE: Update this biography with your finalized personal description. -->
+                    <p>I am Jaegon Hibbitts, a mechanical engineer focused on robotics, autonomous systems, and hands-on product development. My work combines mechanical design, embedded control, and software to build systems that operate reliably in the physical world.</p>
+                    <p>I am especially interested in rover development, robot perception, and integrating hardware with ROS 2 and Python-based control systems.</p>
+                    <p class="education-line">University of Maryland · B.S. Mechanical Engineering · Minor in Robotics and Autonomous Systems</p>
+                </div>
+
+                <figure class="skill-chart-wrap">
+                    <div class="pie-chart" role="img" aria-label="Skills chart: Mechanical Design 53 percent, Electrical 27 percent, Software 20 percent."></div>
+                    <figcaption>
+                        <ul class="skill-legend">
+                            <li><span class="skill-label"><span class="swatch mechanical"></span>Mechanical Design</span><strong>53%</strong></li>
+                            <li><span class="skill-label"><span class="swatch electrical"></span>Electrical</span><strong>27%</strong></li>
+                            <li><span class="skill-label"><span class="swatch software"></span>Software</span><strong>20%</strong></li>
+                        </ul>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="section gallery-section" id="projects">
+            <div class="container">
+                <h2 class="section-heading center-heading">Projects.</h2>
+                <p class="section-intro">Select an image to view a project video and description.</p>
+                <div class="card-grid">
+
+                <a class="image-card" href="projects/jaybot.html">
+                    <div class="card-visual">
+                        <!-- REPLACE: Put your own project preview image at this path or change the src attribute. -->
+                        <img src="assets/images/projects/jaybot-cover.svg" alt="Personal Fully Autonomous Robot preview image">
+                    </div>
+                    <div class="card-caption">
+                        <h3>Personal Fully Autonomous Robot</h3>
+                        <p>View project</p>
+                    </div>
+                </a>
+
+                <a class="image-card" href="projects/autonomous-maze-lidar.html">
+                    <div class="card-visual">
+                        <!-- REPLACE: Put your own project preview image at this path or change the src attribute. -->
+                        <img src="assets/images/projects/lidar-maze-cover.svg" alt="Autonomous Maze Navigation with LiDAR preview image">
+                    </div>
+                    <div class="card-caption">
+                        <h3>Autonomous Maze Navigation with LiDAR</h3>
+                        <p>View project</p>
+                    </div>
+                </a>
+
+                <a class="image-card" href="projects/ur3e-pick-place.html">
+                    <div class="card-visual">
+                        <!-- REPLACE: Put your own project preview image at this path or change the src attribute. -->
+                        <img src="assets/images/projects/ur3e-cover.svg" alt="Pick and Place Task Using UR3e preview image">
+                    </div>
+                    <div class="card-caption">
+                        <h3>Pick and Place Task Using UR3e</h3>
+                        <p>View project</p>
+                    </div>
+                </a>
+
+                <a class="image-card" href="projects/enes100-otv.html">
+                    <div class="card-visual">
+                        <!-- REPLACE: Put your own project preview image at this path or change the src attribute. -->
+                        <img src="assets/images/projects/otv-cover.svg" alt="ENES100 Over Terrain Vehicle preview image">
+                    </div>
+                    <div class="card-caption">
+                        <h3>ENES100 Over Terrain Vehicle</h3>
+                        <p>View project</p>
+                    </div>
+                </a>
+
+                <a class="image-card" href="projects/nasa-hunch-gui.html">
+                    <div class="card-visual">
+                        <!-- REPLACE: Put your own project preview image at this path or change the src attribute. -->
+                        <img src="assets/images/projects/hunch-cover.svg" alt="NASA HUNCH GUI preview image">
+                    </div>
+                    <div class="card-caption">
+                        <h3>NASA HUNCH GUI</h3>
+                        <p>View project</p>
+                    </div>
+                </a>
+
+                <a class="image-card" href="projects/mesa-app.html">
+                    <div class="card-visual">
+                        <!-- REPLACE: Put your own project preview image at this path or change the src attribute. -->
+                        <img src="assets/images/projects/mesa-cover.svg" alt="MESA Mobile App Project preview image">
+                    </div>
+                    <div class="card-caption">
+                        <h3>MESA Mobile App Project</h3>
+                        <p>View project</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section employment-section" id="employment">
+            <div class="container">
+                <h2 class="section-heading center-heading">Employment.</h2>
+                <p class="section-intro">Select an image to read more about each role and experience.</p>
+                <div class="card-grid">
+
+                <a class="image-card" href="employment/teaching-fellow.html">
+                    <div class="card-visual">
+                        <!-- REPLACE: Put your own employment image at this path or change the src attribute. -->
+                        <img src="assets/images/employment/teaching-fellow-cover.svg" alt="Undergraduate Teaching Fellow preview image">
+                    </div>
+                    <div class="card-caption">
+                        <h3>Undergraduate Teaching Fellow</h3>
+                        <p>View experience</p>
+                    </div>
+                </a>
+
+                <a class="image-card" href="employment/volvo-sqe.html">
+                    <div class="card-visual">
+                        <!-- REPLACE: Put your own employment image at this path or change the src attribute. -->
+                        <img src="assets/images/employment/volvo-cover.svg" alt="Supplier Quality Engineering Intern preview image">
+                    </div>
+                    <div class="card-caption">
+                        <h3>Supplier Quality Engineering Intern</h3>
+                        <p>View experience</p>
+                    </div>
+                </a>
+
+                <a class="image-card" href="employment/ssl-researcher.html">
+                    <div class="card-visual">
+                        <!-- REPLACE: Put your own employment image at this path or change the src attribute. -->
+                        <img src="assets/images/employment/ssl-cover.svg" alt="UMD Undergraduate Researcher preview image">
+                    </div>
+                    <div class="card-caption">
+                        <h3>UMD Undergraduate Researcher</h3>
+                        <p>View experience</p>
+                    </div>
+                </a>
+
+                <a class="image-card" href="employment/orano-intern.html">
+                    <div class="card-visual">
+                        <!-- REPLACE: Put your own employment image at this path or change the src attribute. -->
+                        <img src="assets/images/employment/orano-cover.svg" alt="Mechanical Engineering Intern preview image">
+                    </div>
+                    <div class="card-caption">
+                        <h3>Mechanical Engineering Intern</h3>
+                        <p>View experience</p>
+                    </div>
+                </a>
+
+                <a class="image-card" href="employment/mechanic-apprentice.html">
+                    <div class="card-visual">
+                        <!-- REPLACE: Put your own employment image at this path or change the src attribute. -->
+                        <img src="assets/images/employment/mechanic-cover.svg" alt="Apprentice Mechanic preview image">
+                    </div>
+                    <div class="card-caption">
+                        <h3>Apprentice Mechanic</h3>
+                        <p>View experience</p>
+                    </div>
+                </a>
+
+                <a class="image-card" href="employment/apl-aspire.html">
+                    <div class="card-visual">
+                        <!-- REPLACE: Put your own employment image at this path or change the src attribute. -->
+                        <img src="assets/images/employment/apl-cover.svg" alt="ASPIRE Intern preview image">
+                    </div>
+                    <div class="card-caption">
+                        <h3>ASPIRE Intern</h3>
+                        <p>View experience</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+        <div class="container">
+            <p class="footer-name">Jaegon Hibbitts</p>
+            <!-- REPLACE: Add your preferred contact email. -->
+            <p>Contact: <a href="mailto:REPLACE_WITH_YOUR_EMAIL">REPLACE_WITH_YOUR_EMAIL</a></p>
+            <div class="social-icons" aria-label="Social profiles">
+                <a href="https://linkedin.com/in/jaegon-hibbitts" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                    <img src="assets/images/social/linkedin.svg" alt="">
+                </a>
+                <a href="https://www.facebook.com/REPLACE_WITH_YOUR_PROFILE" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile">
+                    <img src="assets/images/social/facebook.svg" alt="">
+                </a>
+                <a href="https://github.com/JaegonHibbitts" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                    <img src="assets/images/social/github.svg" alt="">
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

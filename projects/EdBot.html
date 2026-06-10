@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdBot | Jaegon Hibbitts</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/main.js" defer></script>
+</head>
+<body class="detail-page">
+
+    <header class="site-header inner-header">
+        <nav class="navbar container" aria-label="Primary navigation">
+            <a class="brand" href="../index.html#home">HIBBITTS</a>
+            <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#employment">Employment</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="detail-main">
+        <div class="container detail-container">
+            <a class="back-link" href="../index.html#projects">&larr; Back to Projects</a>
+            <h1 class="detail-title">EdBot</h1>
+            <p class="detail-subtitle">Mechatronic Project · Python</p>
+
+            <div class="detail-media">
+                <video controls poster="../assets/images/projects/EdBot.jpg">
+                    <source src="../assets/videos/EdBot-demo.MOV" type="video/mp4">
+                    Your browser does not support HTML video.
+                </video>
+            </div>
+
+            <article class="detail-description">
+                <h2>Description</h2>
+                <p>I developed a compact, fully onboard humanoid/waddling robot as a test platform for low-degree-of-freedom biped locomotion, center-of-mass control, and IMU-guided balance correction. 
+                    The project began as a two-servo walking concept in which perpendicular servo joints inside a 3D-printed hip block controlled body articulation and attempted leg-lifting motion. 
+                    During initial hardware testing, I established baseline mechanical positions of 83° and 12° for the two servo joints; however, the tests revealed a fundamental limitation in the original mechanism. 
+                    Because both legs were mechanically coupled through the same grounded structure, the servo actuation primarily rotated the floating torso instead of independently advancing a swing leg. 
+                    Based on this result, I transitioned the design to a three-actuator gait architecture consisting of a left-leg servo, right-leg servo, and central body-articulation servo. 
+                    The revised locomotion method uses intentional center-of-gravity shifting: the body servo rotates the torso to transfer load onto one support leg, allowing the unloaded opposite leg to move forward independently. 
+                    Rather than resetting each leg after every motion, the gait was developed as a ratcheting stepping sequence in which the advanced leg remains forward after placement, allowing the opposite leg to continue the progression during the next support transfer.</p>
+                <p>Mechanical development was supported through SolidWorks mass-property analysis so that the leg and foot geometry could be positioned beneath the projected center of mass instead of being determined by appearance alone. 
+                    Using representative PETG print properties for the CAD body and servo-connector structure, the current modeled structure has an estimated mass of 57.48 g and a horizontal-plane center of mass of approximately X = −0.05 mm and Z = −0.50 mm, with the vertical center of mass located at Y = 29.12 mm relative to the assembly origin. 
+                    These values indicated that the printed body itself was nearly centered before external electronics were installed. 
+                    To preserve front/back balance, the 14 g, 3.7 V LiPo battery was positioned at approximately Z = −12.9 mm, while the power boost converter was placed on the opposing side of the origin at approximately Z = +12.9 mm. 
+                    This internal arrangement allowed the legs to be designed near the robot’s central CoG projection while leaving additional stability margin through the foot geometry and curved sole profile. 
+                    The mass calculations were used specifically for CAD placement and balance verification, allowing the walking mechanism to be built around a centered internal layout rather than requiring large corrective offsets in the gait.</p>
+                <p>The embedded control architecture was implemented using an ATmega328P-based Arduino Nano, an MPU-6050 / GY-521 six-degree-of-freedom IMU, and the three independent servo actuators. 
+                    Initial IMU bring-up required low-level I²C debugging, including verification of sensor communication at address 0x68, direct register reads, gyroscope bias analysis, and accelerometer scaling checks. 
+                    The MPU-6050 was configured with a ±250°/s gyroscope range and a ±2 g accelerometer range, providing sufficient measurement resolution for slow body-lean detection during stepping. 
+                    To reduce MEMS measurement noise while retaining enough response for dynamic balancing, I implemented a 5-sample moving-average filter across all six inertial channels. 
+                    Gyroscope Y-axis calibration was performed over 600 stationary samples, resulting in a measured raw bias of approximately 706 counts, equivalent to 5.39°/s, prior to compensation. 
+                    After offset subtraction and conversion to SI units, the corrected angular velocity stabilized to approximately ±0.002 rad/s at rest. 
+                    Accelerometer validation produced steady-state gravitational magnitudes of approximately 1.02–1.03 g, confirming that the scaling and sensor orientation mapping were operating correctly.</p>
+                <p>The final gait-control sequence combines filtered accelerometer lean detection with gyroscope-based rotational damping to determine when the robot has sufficiently transferred weight onto a support leg before advancing the opposite leg. 
+                    The body-articulation servo begins from a neutral position of 100° and rotates toward experimentally calibrated extrema of approximately 145° and 50° to shift support between the left and right legs without intentionally exceeding the tipping threshold. 
+                    A stepping event is initiated once the filtered accelerometer X-axis identifies a sufficient lean of approximately 0.16 g and the gyro Y-axis approaches a low-rotation condition near 0.08 rad/s, indicating that the body has transferred weight and is no longer rotating rapidly. 
+                    At that point, the unloaded leg is advanced incrementally and intentionally held in its new forward position before the body shifts toward the opposite support leg. 
+                    This project integrated CAD-based mass balancing, mechanical gait redesign, embedded I²C debugging, inertial calibration, digital filtering, and finite-state stepping logic into a lightweight autonomous locomotion prototype designed for continued hardware and gait refinement.</p>
+                
+                <!-- <a class="text-link" href="https://sites.google.com/view/nanolabgui?usp=sharing" target="_blank" rel="noopener noreferrer">View project website</a> -->
+            </article>
+        </div>
+    </main>
+</body>
+</html>

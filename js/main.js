@@ -40,3 +40,61 @@ if (navToggle && navLinks) {
         });
     });
 }
+
+// Skills pie chart scroll-reveal animation
+const aboutSection = document.getElementById("about");
+const skillPieChart = document.querySelector(".pie-chart");
+
+if (aboutSection && skillPieChart) {
+    let chartAnimationFrame = null;
+
+    const updatePieChartProgress = () => {
+        const aboutPosition = aboutSection.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+
+        /*
+            The chart begins loading when the About section starts
+            entering the viewport.
+
+            Increase this number to begin the animation earlier.
+            Decrease it to begin later.
+        */
+        const animationStart = viewportHeight * 0.88;
+
+        /*
+            The chart becomes fully loaded once the About section
+            is strongly visible on screen.
+
+            Decrease this number to make the chart finish later.
+            Increase it to make the chart finish earlier.
+        */
+        const animationFinish = viewportHeight * 0.32;
+
+        const progress =
+            (animationStart - aboutPosition.top) /
+            (animationStart - animationFinish);
+
+        const clampedProgress = Math.min(Math.max(progress, 0), 1);
+
+        skillPieChart.style.setProperty(
+            "--chart-progress",
+            `${clampedProgress * 100}%`
+        );
+    };
+
+    const handleChartScroll = () => {
+        if (chartAnimationFrame !== null) {
+            return;
+        }
+
+        chartAnimationFrame = window.requestAnimationFrame(() => {
+            updatePieChartProgress();
+            chartAnimationFrame = null;
+        });
+    };
+
+    updatePieChartProgress();
+
+    window.addEventListener("scroll", handleChartScroll, { passive: true });
+    window.addEventListener("resize", handleChartScroll);
+}

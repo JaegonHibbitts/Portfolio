@@ -5,5 +5,5 @@ jaybot-demo.mp4
 lidar-maze-demo.mp4
 ur3e-stacking-demo.mp4
 enes100-otv-demo.mp4
-nasa-hunch-demo.mp4
+EdBot-demo.MOV
 mesa-app-demo.mp4

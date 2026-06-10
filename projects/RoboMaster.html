@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoboMaster SDK Course Challenge | Jaegon Hibbitts</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/main.js" defer></script> 
+</head>
+<body class="detail-page">
+
+    <header class="site-header inner-header">
+        <nav class="navbar container" aria-label="Primary navigation">
+            <a class="brand" href="../index.html#home">HIBBITTS</a>
+            <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#employment">Employment</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="detail-main">
+        <div class="container detail-container">
+            <a class="back-link" href="../index.html#projects">&larr; Back to Projects</a>
+            <h1 class="detail-title">RoboMaster SDK Course Challenge</h1>
+            <p class="detail-subtitle">UMD CMSC Capstone · Python · YOLO</p>
+
+            <div class="detail-media">
+                <video controls poster="../assets/images/projects/RoboMaster Flow Diagram.png">
+                    <!-- REPLACE: Add your real project video file at this location or edit this src. -->
+                    <source src="../assets/videos/CMSC477 Capstone Attempt1-3 Towers Full.mp4" type="video/mp4">
+                    Your browser does not support HTML video.
+                </video>
+            </div>
+
+            <article class="detail-description">
+                <h2>Description</h2>
+                <p>The goal of this project was to develop an autonomous logistics system for the RoboMaster EP capable of clearing a loading dock by transporting LEGO bricks to designated delivery zones while managing a limited battery supply. 
+                    To complete this task, the robot needed to map an unknown arena, recharge the battery, and navigate obstacles to move lego blocks to the correct area (marked with an Aruco marker). 
+                    Because the assignment emphasized resource-aware planning rather than pure transport, the main challenge was not simply moving bricks from one location to another, but combining reliable perception with a state-based control structure that could repeatedly explore, deliver, and recharge without exceeding the energy budget or colliding with the perimeter cones and fabric box obstacles. 
+                    Our solution focused on a layered architecture that paired a YOLO-based detector for bricks and boxes with an AprilTag pose estimator for the goals and recharge station, fused with onboard odometry and an incremental mapper that recorded landmarks in a global frame as they were observed. 
+                    Around this perception stack we built a deterministic mission sequencer that ran a startup positioning routine, scanned the required AprilTags in a fixed order, returned to the loading dock to center on the towers, executed an image-guided approach with an auto-grasp trigger when the brick entered a defined gripper zone, drove to the appropriate delivery tag, dropped the brick, and then completed a recharge sequence before beginning the next cycle. 
+                    During development, we also designed a more logically complete version that relied entirely on the live map and odometry to plan return paths between the dock, goals, and recharge station, which would have allowed the robot to recover from disturbances such as bricks being moved mid-run. 
+                    However, residual rotational drift from Project 2 and reidentification uncertainty during longer runs forced us to fall back to a hybrid implementation that used live perception for tower centering and AprilTag approach but partially fixed distances for the post-pickup repositioning, which proved more reliable on the physical hardware within the five-minute competition window.</p>
+                <a class="text-link" href="https://docs.google.com/document/d/1yzLQATXnL--plzuPC7IfHhgy_SWKbO5xp29wFEk-4fo/edit?usp=sharing" target="_blank" rel="noopener noreferrer">View project report</a>
+                </article>
+        </div>
+    </main>
+</body>

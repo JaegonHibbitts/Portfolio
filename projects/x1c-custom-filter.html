@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom 3D Printer Filter | Jaegon Hibbitts</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/main.js" defer></script>
+</head>
+<body class="detail-page">
+
+    <header class="site-header inner-header">
+        <nav class="navbar container" aria-label="Primary navigation">
+            <a class="brand" href="../index.html#home">HIBBITTS</a>
+            <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#employment">Employment</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="detail-main">
+        <div class="container detail-container">
+            <a class="back-link" href="../index.html#projects">&larr; Back to Projects</a>
+            <h1 class="detail-title">Custom 3D Printer Filter</h1>
+            <p class="detail-subtitle">Mechatronic Project · 3D Printing · Circuit Design · Electrical Installation · C++</p>
+
+            <div class="detail-media">
+                <video controls poster="../assets/images/projects/mesa-cover.svg">
+                    <!-- REPLACE: Add your real project video file at this location or edit this src. -->
+                    <source src="../assets/videos/mesa-app-demo.mp4" type="video/mp4">
+                    Your browser does not support HTML video.
+                </video>
+            </div>
+
+            <article class="detail-description">
+                <h2>Description</h2>
+                <p> Developed and integrated a temperature-controlled auxiliary air-filtration and lighting system for a Bambu Lab X1 Carbon using a Bento Box-style two-stage filter design with HEPA media for particulate capture and acid-free activated carbon pellets for VOC and odor reduction. Instead of using an external battery or separate power adapter, I designed the system around the printer’s existing 24 V power supply, routing power to two 24 V GDSTIME 4020 fans rated at 0.06 A, 1 W, 6.78 CFM, 6000 RPM, and 0.16 in H₂O static pressure each. Together, the fans draw only 0.12 A during operation while providing active airflow through the filter media. The power distribution system also incorporated an LM2596 DC-DC buck converter to provide 5 V for an Arduino Nano and an additional DC-DC conversion branch to operate a 12 V RGB LED strip, with all grounds tied to a common reference and wiring routed through secure connections sized for the expected current load.</p>
+                <p> Implemented automated fan control using an Arduino Nano, a thermistor mounted inside the printer enclosure, and a logic-level RFP30N06LE N-channel MOSFET rated for 60 V and 30 A. A single low-side MOSFET switching circuit controlled both two-wire fans simultaneously, preventing fan current from passing through the Arduino output pin; the gate network used a 100 Ω series resistor to limit switching transients and a 10 kΩ pull-down resistor to keep the fans off during startup or reset conditions. After installation altered the thermistor behavior, I recalibrated the sensor experimentally using measured data of approximately 159–160 ADC at 40°C, 210 ADC at 60°C, and 280 ADC at 100°C. Focusing on the lower operating range most relevant to enclosure ventilation, I calculated a slope of approximately 0.396°C per ADC count and mapped the desired 35°C fan activation temperature to a raw analog threshold of approximately 147 ADC, then implemented hysteresis with a lower shutoff threshold to prevent rapid fan cycling near the activation point.</p>
+                <p> The final firmware averages thermistor readings, activates the filtration fans only when the enclosure exceeds the programmed thermal threshold, and continues filtration through the cooldown region to reduce residual fumes while limiting unnecessary fan and filter wear. I also integrated animated enclosure lighting controlled through MOSFET-switched LED channels. After the red channel of the LED strip was damaged during physical installation, I adapted the final lighting behavior around the remaining functional blue and green channels, using a smooth blue pulsing idle state when the enclosure is cool and cycling blue, cyan, aqua, and green fade effects while the printer is hot and filtration is active. </p>
+            </article>
+        </div>
+    </main>
+</body>
+</html>

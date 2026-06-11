@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 540">
-<defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#f3f5f7"/><stop offset="1" stop-color="#e4eaf0"/></linearGradient></defs>
-<rect width="420" height="540" fill="url(#bg)"/>
-<circle cx="210" cy="160" r="82" fill="#c5d0db"/>
-<path d="M67 520c8-144 70-224 143-224s135 80 143 224" fill="#1e496b"/>
-<text x="210" y="505" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="18">REPLACE WITH HEADSHOT</text>
-</svg>

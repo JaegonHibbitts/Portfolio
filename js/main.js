@@ -68,7 +68,7 @@ if (aboutSection && skillPieChart) {
             Decrease this number to make the chart finish later.
             Increase it to make the chart finish earlier.
         */
-        const animationFinish = viewportHeight * 0.32;
+        const animationFinish = viewportHeight * 0.17;
 
         const progress =
             (animationStart - aboutPosition.top) /
